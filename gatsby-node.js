@@ -12,6 +12,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             slug
             body
+            frontmatter {
+              title
+              featuredImage
+            }
           }
         }
       }
@@ -19,17 +23,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `);
 
   result.data.allMdx.edges.forEach((edge) => {
-    reporter.info(`Creating page from mdx with slug: ${edge.node.slug}`);
-
     const template = edge.node.slug?.includes("showcase/")
       ? showcaseTemplate
       : defaultTemplate;
+    const path = edge.node.slug?.length > 0 ? edge.node.slug : "index";
+
+    reporter.info(`Creating page from mdx: ${path}`);
 
     createPage({
-      path: `${edge.node.slug}`,
+      path: path,
       component: template,
       context: {
         mdx: edge.node.body,
+        frontmatter: edge.node.frontmatter,
       },
     });
   });

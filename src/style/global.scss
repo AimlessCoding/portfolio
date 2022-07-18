@@ -1,3 +1,6 @@
-.test {
-  color: #ff0000;
-}
+$light: #ccc;
+$dark: #333;
+
+@import "~bootstrap/scss/bootstrap";
+@import "app";
+@import "components/navbar";

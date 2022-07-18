@@ -1,0 +1,14 @@
+a,
+a:hover,
+a:active {
+  color: unset;
+  text-decoration: unset;
+}
+
+.transparent {
+  background-color: #00000000 !important;
+}
+
+.navbar {
+  transition: background-color linear 0.2s;
+}

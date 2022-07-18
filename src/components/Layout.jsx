@@ -1,8 +1,15 @@
 import React from "react";
+import { SSRProvider } from "react-bootstrap";
 import "../style/global.scss";
+import NavBar from "./NavBar";
 
 const Layout = ({ children }) => {
-  return <main className="">{children}</main>;
+  return (
+    <SSRProvider>
+      <NavBar />
+      <main>{children}</main>
+    </SSRProvider>
+  );
 };
 
 export default Layout;

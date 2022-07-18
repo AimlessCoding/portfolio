@@ -18,7 +18,6 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -44,6 +43,19 @@ module.exports = {
         path: "./src/markdown/",
       },
       __key: "markdowns",
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      // options: {
+      //   gatsbyRemarkPlugins: [
+      //     {
+      //       resolve: "gatsby-remark-images",
+      //       options: {
+      //         maxWidth: 2000,
+      //       },
+      //     },
+      //   ],
+      // },
     },
   ],
 };
